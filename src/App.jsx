@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Fetch from './Fetch';
 import './App.css'
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
   }, [scores, highestScores]);
 
   return (
-    <>
+    <div className='container'>
     <header>
       <h1>Memory Card</h1>
       <div className='scores'>
@@ -24,19 +25,10 @@ function App() {
         <h2>Highest Scores: {highestScores}</h2>
       </div>
     </header>
-    
-     <div className='container'>
-        <div className='box' onClick={touchBox}></div>
-        <div className='box' onClick={touchBox}></div>
-        <div className='box' onClick={touchBox}></div>
-        <div className='box' onClick={touchBox}></div>
-        <div className='box' onClick={touchBox}></div>
-        <div className='box' onClick={touchBox}></div>
-        <div className='box' onClick={touchBox}></div>
-        <div className='box' onClick={touchBox}></div>
-        <div className='box' onClick={touchBox}></div>
-     </div>
-    </>
+
+    <Fetch />
+
+    </div>
   )
 }
 
