@@ -8,6 +8,7 @@ export default function App() {
   const [highestScores, setHighestScores] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
   const [message, setMessage] = useState('Game Over!');
+  const [showRules, setShowRules] = useState(false);
 
   function touchBox() {
     setScores(prev => prev + 1);
@@ -37,6 +38,7 @@ export default function App() {
         <h2 id='score'>Scores: {scores}</h2>
         <h2>Highest Scores: {highestScores}</h2>
       </div>
+      <button title='Game Rules' id='info' onClick={() => setShowRules(true)}>?</button>
     </header>
 
     <Fetch touchCard={touchBox} handleScores={endGame}/>
@@ -46,6 +48,19 @@ export default function App() {
         message={message}
         onClose={() => setShowPopup(false)}
       />
+    )}
+
+    {showRules && (
+      <>
+      <div className="backdrop" onClick={() => setShowRules(false)}></div>
+
+      <div className='popup' id='rules' role='dialog'>
+      <h2>Game Rules</h2>
+      <p>Don't click the same card twice!</p>
+      <p>You get 1 point for clicking each card. Click the same card again — Game Over!</p>
+      <button onClick={() => setShowRules(false)}>Got it!</button>
+    </div>
+    </>
     )}
 
     </div>
