@@ -1,16 +1,21 @@
 import { useEffect, useState } from 'react'
 import Fetch from './Fetch';
+import MyPopup from './Popup';
 import './App.css'
 
 export default function App() {
   const [scores, setScores] = useState(0);
   const [highestScores, setHighestScores] = useState(0);
+  const [showPopup, setShowPopup] = useState(false);
+  const [message, setMessage] = useState('Game Over!');
 
   function touchBox() {
     setScores(prev => prev + 1);
   }
 
-  function resetScores() {
+  function endGame(messageText) {
+    setMessage(messageText);
+    setShowPopup(true);
     setScores(0);
   }
 
@@ -20,8 +25,7 @@ export default function App() {
     }
 
     if (scores === 12) {
-      alert('You Won!');
-      resetScores(); 
+      endGame('YOU WON!'); 
     }
   }, [scores, highestScores]);
 
@@ -35,7 +39,14 @@ export default function App() {
       </div>
     </header>
 
-    <Fetch touchCard={touchBox} handleScores={resetScores}/>
+    <Fetch touchCard={touchBox} handleScores={endGame}/>
+
+    {showPopup && (
+      <MyPopup
+        message={message}
+        onClose={() => setShowPopup(false)}
+      />
+    )}
 
     </div>
   )
