@@ -3,7 +3,7 @@ import './App.css'
 
 const api_key = 'laHIensPNJJWt1WjpjtJEBBIjQFsJxGP';
 
-export default function Fetch() {
+export default function Fetch({touchCard}) {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function Fetch() {
   return (
     <div className="grid">
       {cards.map((card) => (
-        <img key={card.id} src={card.img} alt="gif" className="card" />
+        <img key={card.id} src={card.img} alt="gif" className="card" onClick={touchCard}/>
       ))}
     </div>
   );

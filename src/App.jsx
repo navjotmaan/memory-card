@@ -26,7 +26,7 @@ function App() {
       </div>
     </header>
 
-    <Fetch />
+    <Fetch touchCard={touchBox}/>
 
     </div>
   )
