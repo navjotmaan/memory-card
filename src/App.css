@@ -19,6 +19,7 @@
   background-color: burlywood;
   border-radius: 10px;
   border: 2px solid black;
+  cursor: pointer;
 }
 
 header {
