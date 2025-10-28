@@ -30,9 +30,8 @@ export default function Fetch({touchCard, handleScores}) {
 
   function handleCardClick(card) {
     if (clicked.includes(card.id)) {
-      alert('Game Over!');
       setClicked([]);
-      handleScores();
+      handleScores('Game Over!');
       return;
     }
 
