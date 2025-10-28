@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import Fetch from './Fetch';
-import MyPopup from './Popup';
-import './App.css'
+import Fetch from './components/Fetch';
+import MyPopup from './components/Popup';
+import './styles/App.css'
 
 export default function App() {
   const [scores, setScores] = useState(0);

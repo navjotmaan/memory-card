@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import './App.css'
 
 const api_key = 'laHIensPNJJWt1WjpjtJEBBIjQFsJxGP';
 
