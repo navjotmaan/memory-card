@@ -7,6 +7,7 @@ function App() {
   const [highestScores, setHighestScores] = useState(0);
 
   function touchBox() {
+
     setScores(prev => prev + 1);
   }
 
