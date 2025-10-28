@@ -1,13 +1,19 @@
-import { useState, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
   const [scores, setScores] = useState(0);
-  const [highestScores, setHighestScores] = useState(scores);
+  const [highestScores, setHighestScores] = useState(0);
 
   function touchBox() {
-    setScores(scores + 1);
+    setScores(prev => prev + 1);
   }
+
+  useEffect(() => {
+    if (scores > highestScores) {
+      setHighestScores(scores);
+    }
+  }, [scores, highestScores]);
 
   return (
     <>
@@ -15,7 +21,7 @@ function App() {
       <h1>Memory Card</h1>
       <div className='scores'>
         <h2 id='score'>Scores: {scores}</h2>
-        <h2>Highest Scores: {scores > highestScores ? scores : highestScores}</h2>
+        <h2>Highest Scores: {highestScores}</h2>
       </div>
     </header>
     
