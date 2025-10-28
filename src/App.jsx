@@ -18,6 +18,11 @@ export default function App() {
     if (scores > highestScores) {
       setHighestScores(scores);
     }
+
+    if (scores === 12) {
+      alert('You Won!');
+      resetScores(); 
+    }
   }, [scores, highestScores]);
 
   return (
