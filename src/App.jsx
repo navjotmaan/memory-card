@@ -2,13 +2,16 @@ import { useEffect, useState } from 'react'
 import Fetch from './Fetch';
 import './App.css'
 
-function App() {
+export default function App() {
   const [scores, setScores] = useState(0);
   const [highestScores, setHighestScores] = useState(0);
 
   function touchBox() {
-
     setScores(prev => prev + 1);
+  }
+
+  function resetScores() {
+    setScores(0);
   }
 
   useEffect(() => {
@@ -27,10 +30,10 @@ function App() {
       </div>
     </header>
 
-    <Fetch touchCard={touchBox}/>
+    <Fetch touchCard={touchBox} handleScores={resetScores}/>
 
     </div>
   )
 }
 
-export default App
+ 
